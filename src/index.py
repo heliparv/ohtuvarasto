@@ -1,58 +1,84 @@
 from varasto import Varasto
 
+class Main:
+    '''Täältä käytetään varastoa tavalla jota en
+    itse ikinä noudattaisi, mutta oli kiire saada pylint hiljaiseksi'''
 
-def main():
-    mehua = Varasto(100.0)
-    olutta = Varasto(100.0, 20.2)
+    def __init__(self):
+        '''main käynnistää varaston toiminnan'''
+        self.mehua = Varasto(100.0)
+        self.olutta = Varasto(100.0, 20.2)
+        self.luonnin_jalkeen()
 
-    print("Luonnin jälkeen:")
-    print(f"Mehuvarasto: {mehua}")
-    print(f"Olutvarasto: {olutta}")
+    def luonnin_jalkeen(self):
+        '''juuh'''
+        print("Luonnin jälkeen:")
+        print(f"Mehuvarasto: {self.mehua}")
+        print(f"Olutvarasto: {self.olutta}")
+        self.olut_getterit()
 
-    print("Olut getterit:")
-    print(f"saldo = {olutta.saldo}")
-    print(f"tilavuus = {olutta.tilavuus}")
-    print(f"paljonko_mahtuu = {olutta.paljonko_mahtuu()}")
+    def olut_getterit(self):
+        '''elikkäs'''
+        print("Olut getterit:")
+        print(f"saldo = {self.olutta.saldo}")
+        print(f"tilavuus = {self.olutta.tilavuus}")
+        print(f"paljonko_mahtuu = {self.olutta.paljonko_mahtuu()}")
 
-    print("Mehu setterit:")
-    print("Lisätään 50.7")
-    mehua.lisaa_varastoon(50.7)
-    print(f"Mehuvarasto: {mehua}")
-    print("Otetaan 3.14")
-    mehua.ota_varastosta(3.14)
-    print(f"Mehuvarasto: {mehua}")
 
-    print("Virhetilanteita:")
-    print("Varasto(-100.0);")
-    huono = Varasto(-100.0)
-    print(huono)
+    def mehu_setterit(self):
+        '''aivan hirveetä'''
+        print("Mehu setterit:")
+        print("Lisätään 50.7")
+        self.mehua.lisaa_varastoon(50.7)
+        print(f"Mehuvarasto: {self.mehua}")
+        print("Otetaan 3.14")
+        self.mehua.ota_varastosta(3.14)
+        print(f"Mehuvarasto: {self.mehua}")
+        self.virhetilanteita()
 
-    print("Varasto(100.0, -50.7)")
-    huono = Varasto(100.0, -50.7)
-    print(huono)
+    def virhetilanteita(self):
+        '''Vielä yritän kommentoida'''
+        print("Virhetilanteita:")
+        print("Varasto(-100.0);")
+        huono = Varasto(-100.0)
+        print(huono)
 
-    print(f"Olutvarasto: {olutta}")
-    print("olutta.lisaa_varastoon(1000.0)")
-    olutta.lisaa_varastoon(1000.0)
-    print(f"Olutvarasto: {olutta}")
+        print("Varasto(100.0, -50.7)")
+        huono = Varasto(100.0, -50.7)
+        print(huono)
+        self.olutta_lisaa_varastoon()
 
-    print(f"Mehuvarasto: {mehua}")
-    print("mehua.lisaa_varastoon(-666.0)")
-    mehua.lisaa_varastoon(-666.0)
-    print(f"Mehuvarasto: {mehua}")
+    def olutta_lisaa_varastoon(self):
+        '''Kyllä tämä vaan on kommentti'''
+        print(f"Olutvarasto: {self.olutta}")
+        print("olutta.lisaa_varastoon(1000.0)")
+        self.olutta.lisaa_varastoon(1000.0)
+        print(f"Olutvarasto: {self.olutta}")
+        self.lisaa_mehua_varastoon()
 
-    print(f"Olutvarasto: {olutta}")
-    print("olutta.ota_varastosta(1000.0)")
-    saatiin = olutta.ota_varastosta(1000.0)
-    print(f"saatiin {saatiin}")
-    print(f"Olutvarasto: {olutta}")
+    def lisaa_mehua_varastoon(self):
+        '''aaaa'''
+        print(f"Mehuvarasto: {self.mehua}")
+        print("mehua.lisaa_varastoon(-666.0)")
+        self.mehua.lisaa_varastoon(-666.0)
+        print(f"Mehuvarasto: {self.mehua}")
+        self.ota_olutta()
 
-    print(f"Mehuvarasto: {mehua}")
-    print("mehua.otaVarastosta(-32.9)")
-    saatiin = mehua.ota_varastosta(-32.9)
-    print(f"saatiin {saatiin}")
-    print(f"Mehuvarasto: {mehua}")
+    def ota_olutta(self):
+        print(f"Olutvarasto: {self.olutta}")
+        print("olutta.ota_varastosta(1000.0)")
+        saatiin = self.olutta.ota_varastosta(1000.0)
+        print(f"saatiin {saatiin}")
+        print(f"Olutvarasto: {self.olutta}")
+        self.ota_mehua()
+
+    def ota_mehua(self):
+        print(f"Mehuvarasto: {self.mehua}")
+        print("mehua.otaVarastosta(-32.9)")
+        saatiin = self.mehua.ota_varastosta(-32.9)
+        print(f"saatiin {saatiin}")
+        print(f"Mehuvarasto: {self.mehua}")
 
 
 if __name__ == "__main__":
-    main()
+    main = Main()
